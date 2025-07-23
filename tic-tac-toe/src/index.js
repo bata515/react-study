@@ -1,4 +1,3 @@
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -109,8 +108,8 @@ class Game extends React.Component {
     // 過去の手番に移動するためのボタンリストを作成します。
     const moves = history.map((step, move) => {
       const desc = move ?
-        'Go to move #' + move :
-        'Go to game start';
+        '手番 #' + move + ' に移動' :
+        'ゲーム開始時に戻る';
       return (
         <li key={move}>
           <button onClick={() => this.jumpTo(move)}>{desc}</button>
@@ -120,9 +119,9 @@ class Game extends React.Component {
 
     let status;
     if (winner) {
-      status = 'Winner: ' + winner;
+      status = '勝者: ' + winner;
     } else {
-      status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = '次のプレイヤー: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
