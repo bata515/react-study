@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { MyButton } from './button'; // MyButtonコンポーネントをインポート
 
 // Squareコンポーネントは、一つのマス目を表します。
 // propsとしてvalue (X, O, または null) と onClickイベントハンドラを受け取ります。
@@ -121,7 +122,7 @@ class Game extends React.Component {
     if (winner) {
       status = '勝者: ' + winner;
     } else {
-      status = '次のプレイヤー: ' + (this.state.xIsNext ? 'X' : 'O');
+      status = '次の操作者: ' + (this.state.xIsNext ? 'X' : 'O');
     }
 
     return (
@@ -137,7 +138,12 @@ class Game extends React.Component {
           <div>{status}</div>
           <ol>{moves}</ol>
         </div>
+        <div>
+          <h1>It is MyButton</h1>
+          <MyButton />
+        </div>
       </div>
+      
     );
   }
 }
